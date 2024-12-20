@@ -1,22 +1,25 @@
-# addition , subtraction, multiplication, division, modulus 
-# Prompt user to input two different numbers in a single line
+def perform_operations(num1, num2):
+    """Performs basic arithmetic operations and returns results."""
+    results = {
+        "Addition": num1 + num2,
+        "Subtraction": num1 - num2,
+        "Multiplication": num1 * num2,
+        "Division": num1 / num2 if num2 != 0 else "Undefined (division by zero)",
+        "Modulus": num1 % num2 if num2 != 0 else "Undefined (division by zero)",
+        "Exponential": num1 ** num2,
+    }
+    return results
 
-num1, num2 = map(float, input("Enter two number: ").split(","))
+def main():
+    try:
+        num1, num2 = map(float, input("Enter two numbers separated by a comma: ").split(","))
+        results = perform_operations(num1, num2)
+        for operation, result in results.items():
+            print(f"{operation}: {result}")
+    except ValueError:
+        print("Invalid input! Please enter two valid numbers separated by a comma.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
-addition = num1 + num2                  # gives the addition of two number
-subtraction = num1 - num2               # gives subtraction
-multiplication = num1*num2              # gives multiplication
-division = num1//num2                   # gives floor division
-reminder = num1 % num2                  # gives the reminder 
-exponential = num1 ** num2              # exponential number
-
-print("Addition: ", addition)
-print("Subtraction: ", subtraction)
-print("Division: ", division)
-print("Modulus: ", reminder)
-print("Exponential: ", exponential)
-
-actions = [addition, subtraction, multiplication, division, reminder, exponential]
-
-for action in actions:
-    print(action)
+if __name__ == "__main__":
+    main()
