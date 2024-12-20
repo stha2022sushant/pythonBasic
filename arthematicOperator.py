@@ -15,3 +15,8 @@ print("Subtraction: ", subtraction)
 print("Division: ", division)
 print("Modulus: ", reminder)
 print("Exponential: ", exponential)
+
+actions = [addition, subtraction, multiplication, division, reminder, exponential]
+
+for action in actions:
+    print(action)
